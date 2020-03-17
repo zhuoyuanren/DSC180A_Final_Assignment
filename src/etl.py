@@ -17,7 +17,7 @@ def get_data(person, files, outpath, **kwargs):
     for i in person:
         for f in files:
             response = urllib.request.urlopen("ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/data/%s/sequence_read/%s"%(i,f))
-            with open(i+f[:f.index('.')]+'.fastq', 'wb') as output:
+            with open(outpath+'/' + i+f[:f.index('.')]+'.fastq', 'wb') as output:
                 output.write(response.read())
 
 def filter_recode(input_file, output_dir,output_filename, maf, geno, mind ):
